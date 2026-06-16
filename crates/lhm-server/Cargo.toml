@@ -23,7 +23,7 @@ tokio-util.workspace = true
 futures-util.workspace = true
 
 # Wide string for creating a security descriptor
-widestring = "=1.2.0"
+widestring = "1.2.0"
 
 # Shared helpers
 lhm-shared = { version = "0.2.0", path = "../lhm-shared" }

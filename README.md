@@ -48,10 +48,14 @@ winget install Microsoft.DotNet.SDK.8
 
 Verify using `dotnet --list-sdks`.
 
-It will also be necessary to have Visual Studio 2022 installed with the desktop C++ development workload. (More recent Visual Studio gets link errors.) This command will make this so, but will require user interaction with the Visual Studio Installer GUI:
+You will also need to have Visual Studio 2022 installed with the desktop C++ development workload. 
+
+> More recent versions of Visual Studio will cause linker errors.
+
+The following command will install the required version and workload, this will require additional user interaction within the Visual Studio Installer GUI:
 
 ```
-    winget install Microsoft.VisualStudio.2022.Community --silent --override "--wait --quiet --add ProductLang En-us --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended"
+winget install Microsoft.VisualStudio.2022.Community --silent --override "--wait --quiet --add ProductLang En-us --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended"
 ```
 
 ## 📦  Components

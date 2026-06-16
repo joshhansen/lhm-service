@@ -46,6 +46,14 @@ To build `lhm-sys` or `lhm-service`, you need to have the .NET SDK 8.0 installed
 winget install Microsoft.DotNet.SDK.8
 ```
 
+Verify using `dotnet --list-sdks`.
+
+It will also be necessary to have Visual Studio 2022 installed with the desktop C++ development workload. (More recent Visual Studio gets link errors.) This command will make this so, but will require user interaction with the Visual Studio Installer GUI:
+
+```
+    winget install Microsoft.VisualStudio.2022.Community --silent --override "--wait --quiet --add ProductLang En-us --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended"
+```
+
 ## 📦  Components
 
 ### 🧩 lhm-sys (Bridge)

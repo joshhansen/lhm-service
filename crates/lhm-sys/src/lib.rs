@@ -16,7 +16,7 @@ use std::{
     marker::PhantomData,
 };
 
-use lhm_shared::HardwareType;
+use lhm_shared::{HardwareType, SensorType};
 
 #[repr(C)]
 pub struct ComputerOptions {
@@ -277,8 +277,8 @@ impl Sensor {
     }
 
     /// Get the type of the sensor
-    pub fn get_type(&self) -> i32 {
-        unsafe { get_sensor_type(self.ptr) }
+    pub fn get_type(&self) -> SensorType {
+        unsafe { get_sensor_type(self.ptr) }.into()
     }
 
     /// Get the last value for the sensor

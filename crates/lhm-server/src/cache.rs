@@ -141,16 +141,14 @@ impl HardwareCache {
         parent_index: Option<usize>,
         ty: Option<SensorType>,
     ) -> impl Iterator<Item = (usize, &lhm_sys::Sensor)> + '_ {
-        let ty_value: Option<i32> = ty.map(|value| value.into());
-
         self.sensors
             .iter()
             .enumerate()
             .filter(move |(_, sensor)| {
                 // Filter by type
-                if ty_value
+                if ty
                     .as_ref()
-                    .is_some_and(|ty_value| sensor.sensor.get_type().ne(ty_value))
+                    .is_some_and(|ty| sensor.sensor.get_type().ne(ty))
                 {
                     return false;
                 }

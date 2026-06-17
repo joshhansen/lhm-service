@@ -113,16 +113,15 @@ impl HardwareCache {
         parent_index: Option<Option<usize>>,
         ty: Option<HardwareType>,
     ) -> impl Iterator<Item = (usize, &lhm_sys::Hardware)> + '_ {
-        let ty_value: Option<i32> = ty.map(|value| value.into());
 
         self.hardware
             .iter()
             .enumerate()
             .filter(move |(_, hardware)| {
                 // Filter by type
-                if ty_value
+                if ty
                     .as_ref()
-                    .is_some_and(|ty_value| hardware.hardware.get_type().ne(ty_value))
+                    .is_some_and(|ty| hardware.hardware.get_type().ne(ty))
                 {
                     return false;
                 }

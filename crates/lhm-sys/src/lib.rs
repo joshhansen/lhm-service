@@ -16,6 +16,8 @@ use std::{
     marker::PhantomData,
 };
 
+use lhm_shared::HardwareType;
+
 #[repr(C)]
 pub struct ComputerOptions {
     pub battery_enabled: bool,
@@ -191,8 +193,8 @@ impl Hardware {
     }
 
     /// Get the type of hardware
-    pub fn get_type(&self) -> i32 {
-        unsafe { get_hardware_type(self.ptr) }
+    pub fn get_type(&self) -> HardwareType {
+        unsafe { get_hardware_type(self.ptr) }.into()
     }
 
     /// Get all children hardware for this item

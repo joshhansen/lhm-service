@@ -12,3 +12,7 @@ description = "Wrapper around Libre Hardware Monitor to request hardware (and te
 default = ["static"]
 dylib = []
 static = []
+
+[dependencies]
+# Shared structures
+lhm-shared = { version = "0.2.0", path = "../lhm-shared" }
